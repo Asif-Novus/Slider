@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.view.backgroundColor = [UIColor lightGrayColor];
     
     UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(50,100,276,10)];
     [slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventValueChanged];
@@ -26,6 +27,39 @@
     slider.continuous = NO; //dont send updated value to the action
     slider.value = 0.7;
     [self.view addSubview:slider];
+    
+    
+    UILabel* lblFirstInSlider = [[UILabel alloc] initWithFrame:CGRectMake(69, 0, 1, 9)];
+    lblFirstInSlider.backgroundColor = [UIColor blueColor];// slider.maximumTrackTintColor;
+    [slider addSubview:lblFirstInSlider];
+    
+    
+    UILabel* lblSecondInSlider = [[UILabel alloc] initWithFrame:CGRectMake(69*2, 0, 1, 9)];
+    lblSecondInSlider.backgroundColor = [UIColor blueColor];
+    [slider addSubview:lblSecondInSlider];
+    
+    
+    UILabel* lblThirdInSlider = [[UILabel alloc] initWithFrame:CGRectMake(69*3, 0, 1, 9)];
+    lblThirdInSlider.backgroundColor = [UIColor blueColor];
+    [slider addSubview:lblThirdInSlider];
+    
+    
+    UILabel* lblMinSliderValue = [[UILabel alloc] initWithFrame:CGRectMake(50, slider.frame.origin.y-37, 40, 40)];
+    [lblMinSliderValue setText:@"0.6"];
+    [lblMinSliderValue setFont:[UIFont fontWithName:@"HelveticaNeueRegular" size:9]];
+    [lblMinSliderValue setTextColor:[UIColor whiteColor]];
+    
+    [self.view addSubview:lblMinSliderValue];
+   
+    
+    
+    UILabel*  lblMaxSliderValue = [[UILabel alloc] initWithFrame:CGRectMake(slider.frame.size.width+slider.frame.origin.x-26, slider.frame.origin.y-37, 40, 40)];
+    [lblMaxSliderValue setText:@"1.0"];
+    [lblMaxSliderValue setFont:[UIFont fontWithName:@"HelveticaNeueRegular" size:9]];
+    [lblMaxSliderValue setTextColor:[UIColor whiteColor]];
+    
+     [self.view addSubview:lblMaxSliderValue];
+
 }
 -(void)sliderAction:(id)sender{
     
